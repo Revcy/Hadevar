@@ -9,13 +9,13 @@ with open('info/token.txt', encoding='utf8') as file:
 
 @bot.message_handler(commands=['start'], chat_types=['private'])
 def start_function(message):
-    bot.send_message(message.from_user.id, 'Бот для фильтрации матных слов! \nФильтр бота можно изменять \nRevoltTeam 2022')
+    bot.send_message(message.from_user.id, 'Badword-filter bot!')
 
 @bot.message_handler(func= lambda message: True, chat_types=['group', 'supergroup'])
 def badword_function(message):
     print(message.text, badword_detector_function(message.text))
     if badword_detector_function(message.text) == True:
         bot.delete_message(message.chat.id, message.message_id)
-        bot.send_message(message.chat.id, f'{message.from_user.first_name}, написал плохое слово! Оно было удалено')
+        bot.send_message(message.chat.id, f'{message.from_user.first_name}, type a badword! Message has been deleted')
 
 bot.infinity_polling()
