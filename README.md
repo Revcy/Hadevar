@@ -1,4 +1,4 @@
-# Hadevar Bot
+# Hadevar
 Telegram bot that detect bad words in group or supergroup and delete them.
 
 # Installing
